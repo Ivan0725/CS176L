@@ -1,46 +1,40 @@
-package Prob2;
+package Week5;
+
+import java.util.Scanner;
 
 public class Problem2 {
-	public String studentName;
-	public int scores;
-	public int total;
-	public int avg;
-	public int numberQuizzes;
-	
-	public Problem2 (String name) {
-		studentName = name;
-	}
-	
-	
-	public String getName() {
-		return studentName;
-	}
-	
-	public void addScore(int score) {
-		total += score;
-		numberQuizzes++;
-	}
-	
-	public int getTotalScore() {
-		return total;
-	}
-	
-	public int getAvgScore() {
-		int average = total/numberQuizzes;
-		return average;
-	}
-	
-	public static void main(String[]args) {
-		Problem2 ivan = new Problem2("Ivan");
-		ivan.addScore(96);
-		ivan.addScore(82);
-		ivan.addScore(88);
-		ivan.addScore(97);
-		ivan.addScore(89);
-
-		System.out.println("Student name: " + ivan.getName());
-		System.out.println("Total Score: " + ivan.getTotalScore());
-		System.out.println("Average score: " + ivan.getAvgScore());		
+	public static void main(String[] args) {
 		
+		Scanner calc = new Scanner(System.in);
+		
+		System.out.println("Enter first integer number: ");
+		int firstInt = calc.nextInt();
+		
+		System.out.println("Enter an arithmetic operator: ( + , - , * , / )");
+		String operator = calc.next();
+		
+		System.out.println("Enter second integer number: ");
+		int secondInt = calc.nextInt();
+		
+		if (operator.equals("+")) {
+			int add;
+			add = firstInt + secondInt;
+			System.out.printf("The result of " + firstInt + " + " + secondInt + " = " + add);
+		} else if(operator.equals("-")) {
+			int sub;
+			sub = firstInt - secondInt;
+			System.out.printf("The result of " + firstInt + " - " + secondInt + " = " + sub);
+		} else if(operator.equals("*")) {
+			int mult;
+			mult = firstInt * secondInt;
+			System.out.printf("The result of " + firstInt + " * " + secondInt + " = " + mult);
+		} else if(operator.equals("/")) {
+			int divide;
+			divide = firstInt / secondInt;
+			System.out.printf("The result of " + firstInt + " / " + secondInt + " = " + divide);
+		} else {
+			System.out.printf("Error " + operator + " was not a valid operator.");
+		}
+		calc.close();
 	}
 }
